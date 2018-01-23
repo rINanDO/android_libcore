@@ -113,6 +113,9 @@ public class JSONTokener {
     }
 
     private int nextCleanInternal() throws JSONException {
+        if (in == null) {
+             return -1;
+        }
         while (pos < in.length()) {
             int c = in.charAt(pos++);
             switch (c) {
