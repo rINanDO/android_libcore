@@ -345,9 +345,11 @@ public class TreeMap<K,V>
         if (comparator != null)
             return getEntryUsingComparator(key);
         if (key == null)
-            throw new NullPointerException();
+            return null;
         @SuppressWarnings("unchecked")
             Comparable<? super K> k = (Comparable<? super K>) key;
+        if (k == null)
+            return null;
         TreeMapEntry<K,V> p = root;
         while (p != null) {
             int cmp = k.compareTo(p.key);
